@@ -23,3 +23,19 @@ pub fn get_2_mut<T>(slice: &mut [T], first: usize, second: usize) -> [&mut T; 2]
         ]
     }
 }
+
+/// Parse a u64 from an ascii string. Slightly faster than FromStr.
+pub fn parse_u64(b: impl AsRef<[u8]>) -> Option<u64> {
+    let b = b.as_ref();
+
+    let mut out = 0;
+    if b.iter().any(|b| !b.is_ascii_digit()) {
+        return None;
+    }
+
+    for (i, &b) in b.iter().rev().enumerate() {
+        let n = u64::from(b - b'0');
+        out += n * (10u64.pow(i as u32));
+    }
+    Some(out)
+}

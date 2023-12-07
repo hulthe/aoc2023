@@ -85,7 +85,7 @@ dependencies = [
 
 [[package]]
 name = "aoc_2023"
-version = "6.0.0"
+version = "7.0.0"
 dependencies = [
  "aoc_helpers",
  "aoc_macro",

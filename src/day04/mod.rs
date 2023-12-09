@@ -24,14 +24,14 @@ pub fn parse(input: &str) -> Vec<Card> {
             let mut winning_numbers: HashSet<u64> = Default::default();
             let mut numbers: HashSet<u64> = Default::default();
 
-            while let Some(n) = raw_nums.next() {
+            for n in raw_nums.by_ref() {
                 if n == b"|" {
                     break;
                 }
                 winning_numbers.insert(parse_u64(n).unwrap());
             }
 
-            while let Some(n) = raw_nums.next() {
+            for n in raw_nums {
                 numbers.insert(parse_u64(n).unwrap());
             }
 

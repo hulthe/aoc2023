@@ -54,7 +54,7 @@ pub fn part2(input: &str) -> u64 {
                 .find_map(|prefix| {
                     last_char(prefix).parse().ok().or_else(|| {
                         DIGIT_NAMES
-                            .into_iter()
+                            .iter()
                             .enumerate()
                             .find_map(|(i, name)| prefix.ends_with(name).then_some(i as u64))
                     })
@@ -65,7 +65,7 @@ pub fn part2(input: &str) -> u64 {
                 .find_map(|suffix| {
                     first_char(suffix).parse().ok().or_else(|| {
                         DIGIT_NAMES
-                            .into_iter()
+                            .iter()
                             .enumerate()
                             .find_map(|(i, name)| suffix.starts_with(name).then_some(i as u64))
                     })

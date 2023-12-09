@@ -27,7 +27,7 @@ pub fn parse(input: &str) -> Vec<Game> {
                 .map(|game| {
                     game.split(", ")
                         .map(|c| {
-                            let (count, color) = c.split_once(" ").unwrap();
+                            let (count, color) = c.split_once(' ').unwrap();
                             let color = match color.as_bytes()[0] {
                                 b'r' => Color::Red,
                                 b'g' => Color::Green,

@@ -74,8 +74,8 @@ pub fn part2(input: &str) -> usize {
     } = parse(input);
 
     let starting_nodes: Vec<_> = nodes
-        .iter()
-        .map(|(node, _)| *node)
+        .keys()
+        .copied()
         .filter(|node| &node[2..] == "A")
         .collect();
 
@@ -114,7 +114,7 @@ mod tests {
 
     #[test]
     pub fn test_part2() {
-        let input = include_str!("test-input");
-        assert_eq!(part2(input), 1337);
+        let input = include_str!("test-input2");
+        assert_eq!(part2(input), 6);
     }
 }

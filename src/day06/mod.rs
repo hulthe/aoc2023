@@ -28,8 +28,8 @@ fn solve_race(time: f64, record: f64) -> u64 {
     let min_button_time = min_button_time.floor() as u64 + 1;
     let max_button_time = max_button_time.ceil() as u64 - 1;
 
-    let possible_ways_to_win = 1 + max_button_time - min_button_time;
-    possible_ways_to_win
+    // calculate number of possible ways to win
+    1 + max_button_time - min_button_time
 }
 
 pub fn part1(input: &str) -> u64 {

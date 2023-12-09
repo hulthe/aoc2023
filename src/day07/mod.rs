@@ -29,14 +29,20 @@ pub enum HandKind {
     FiveOfAKind,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Hand {
     cards: [Card; 5],
 }
 
 impl PartialOrd for Hand {
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        (self.kind(), &self.cards).partial_cmp(&(other.kind(), &other.cards))
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for Hand {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        (self.kind(), &self.cards).cmp(&(other.kind(), &other.cards))
     }
 }
 
